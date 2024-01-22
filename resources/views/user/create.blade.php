@@ -22,7 +22,7 @@
                         <div class="col-sm-10">
                             <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
                                    name="name"
-                                   value="{{old('name') ?? isset($user) ? $user->name : null}}"
+                                   value="{{old('name') ?? $user?->name}}"
                                    type="text"
                                    placeholder="Numele utilizatorului"
                                    id="name-input"
@@ -40,7 +40,7 @@
                         <div class="col-sm-10">
                             <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
                                    name="email"
-                                   value="{{old('email') ?? isset($user) ? $user->email : null}}"
+                                   value="{{old('email') ?? $user?->email}}"
                                    type="email"
                                    placeholder="Adresa de e-mail"
                                    id="email-input"
@@ -76,9 +76,9 @@
                     <div class="row mb-3">
                         <label for="role-input" class="col-sm-2 col-form-label">Rol</label>
                         <div class="col-sm-10">
-                            <select name="role" class="form-control {{ $errors->has('role') ? 'is-invalid' : '' }}">
+                            <select name="is_admin" class="form-control {{ $errors->has('role') ? 'is-invalid' : '' }}">
                                 <option value="" >---- Alege rolul -----</option>
-                                <option value=0 {{ isset($user) ? ($user->role == 0 ? 'selected' : "") : "" }} >Secretara</option>
+                                <option value=0 {{ isset($user) ? ($user->role == 0 ? 'selected' : "") : "" }} >Elev</option>
                                 <option value=1 {{ isset($user) ? ($user->role == 1 ? 'selected' : "") : "" }} >Administrator</option>
                             </select>
 

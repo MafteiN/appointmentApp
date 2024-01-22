@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
                 'name'      => 'required|min:3',
                 'email'     => $emailRule,
                 'password'  => $passwordRule,
-                'role'      => 'required',
+                'is_admin'  => 'required',
             ];
     }
 
